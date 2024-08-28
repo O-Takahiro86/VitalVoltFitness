@@ -1,0 +1,508 @@
+@charset "UTF-8";
+
+
+/* レイアウト */
+body{
+    background-color: #fff;
+}
+div.section{
+    border-bottom: 1px solid #29323D;
+    border-collapse: collapse;
+    margin: .5em;
+    padding: 0.5em;
+}
+button{
+    font-weight: normal;
+    font-size: .9em;
+}
+
+/* クラス付与 */
+.hidden{
+    visibility: hidden;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #29323D;
+}
+header h2{
+    padding: 0 1rem;
+}
+
+/* メイン */
+main{
+    background-color: #fff;
+    font-size: 1rem;
+}
+p#attention{
+    margin: 0.5em;
+}
+    /* 属性判別ボタン */
+div.memberAttr button{
+    border: 2px solid #29323D;
+    border-radius: 14px;
+    background-color: #e6e6e6;
+    margin: 1em .25rem;
+    padding: .2em;
+}
+.memberAttr button:hover{
+    border-color: #e4820b;
+}
+    /* 付与クラス */
+.memberAttr button.select{
+    background-color: #29323D;
+    color: #fff;
+}
+
+    /* ログイン画面 */
+    /* ポップアップ時に被せるレイヤー */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000; /* オーバーレイを最前面に */
+}
+div.member-login{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1001;
+    width: 80%;
+    border: 2px solid #29323D;
+    border-radius: 30px;
+    margin: auto;
+    padding: 1em;
+    background-color: #e6e6e6;
+    color: #29323D;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+.member-login>p{
+    margin: 0.5em auto;
+}
+table.login-list{
+    width: 100%;
+    height: auto;
+}
+.login-list th{
+    text-align: right;
+    font-size: .8rem;
+}
+.login-list td{
+    text-align: left;
+    padding: 1em .5em;
+}
+.login-list tr:first-of-type th,
+.login-list tr:first-of-type td{
+    border-bottom: 1px dashed;
+}
+.login-list input{
+    border: 2px solid #29323D;
+    border-radius: 5px;
+    margin: auto 0;
+    width: 90%;
+    background-color: #fff;
+}
+
+div.btns{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.open-btn{
+    display: block;
+    margin: .25em .5em;
+    padding: 0.5em;
+    background-color: #29323D;
+    color: #fff;
+    border: 1px outset #e6e6e6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.open-btn:hover,
+.close-btn:hover{
+    background-color: rgb(4, 129, 129);
+    border-color: #e4820b;
+}
+.close-btn {
+    display: block;
+    font-size: .75em;
+    margin: .25em .5em;
+    padding: 0 0.5em;
+    background-color: #FFF;
+    border: 1px solid #29323D;
+    border-radius: 8px;
+    color: #29323D;
+    cursor: pointer;
+}
+
+    /* プログラム選択 & トレーナー選択 */
+.member-form{
+    display: none;
+}
+.member-form>p,
+.trainer-select>p,
+.guidance-form>p{
+    padding: 0.75em 0;
+}
+.select-item,
+.select-item-guidance{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5em auto;
+    padding: .5em;
+    border: .5px solid #29323D;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    cursor: pointer;
+}
+.program-img{
+    display: flex;
+    justify-content: left;
+}
+.program-img img{
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    margin: .5em 0;
+    border: 2px solid #29323D;
+    border-radius: 50%;
+}
+.select-item p,
+.select-item-guidance p{
+    text-align: center;
+}
+p.times{
+    width: 30%;
+}
+p.times + p{
+    width: 40%;
+}
+.select-item:hover{
+    border: 1px solid #e4820b;
+}
+.select-item.select{
+    background-color: #29323D;
+    color: #FFF;
+    font-weight: bold;
+}
+.select-img.select img{
+    border: 1px solid #fff;
+}
+
+    /* 担当者欄 */
+#trainer,
+#guidanceForm{
+    display: none;
+}
+.gym-staff img{
+    background-color: #fff;
+}
+#TheGuidance{
+    background-color: #29323D;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.gym-staff>p{
+    width: 60%;
+    text-align: left;
+    margin: auto;
+}
+
+    /* 健康習慣 入力フォーム */
+div.text-form{
+    margin: .5em 0;
+}
+form#guidance_form,
+.firstUser-field{
+    width: 100%;
+    margin: .5em auto;
+    padding: .5em;
+    border-radius: 16px;
+    background-color: #f4b88e;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+.form-item{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    margin: 0.5em;
+    padding: .5em .5em 0;
+}
+.form-item p{
+    width: 100%;
+    margin: .5em;
+
+}
+.form-item input,
+.form-item select{
+    width: 95%;
+    border: 1px solid #29323D;
+    border-radius: 5px;
+    margin: 0.5em;
+    background-color: #fff;
+}
+.form-item select{
+    appearance: menulist;
+}
+#confirm_btn{
+    width: 50px;
+    margin: auto;
+}
+.confirm-content{
+    margin: auto;
+    padding: 1em;
+    border: 1px solid #29323D;
+    border-radius: 16px;
+    background-color: #f4f4f4;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1001;
+    width: 90%;
+}
+.confirm-content p{
+    padding: 0.5em 0;
+}
+.confirm-content span{
+    font-weight: bold;
+    margin-left: 1em;
+}
+.confirm-content .btns{
+    margin-top: 1em;
+}
+
+#fix_btn{
+    align-self: center;
+    padding: 0.5em;
+    font-size: 1em;
+    background-color: #e6e6e6;
+}
+#fix_btn:hover{
+    background-color: rgb(4, 129, 129);
+}
+
+    /* 日時選択画面 */
+    /* 一週間分表示 */
+div.time-table{
+    width: 100%;
+    display: none;
+}
+.time-head{
+    display: flex;
+    justify-content: space-between;
+    margin: .75em 0;
+    background-color: #fff;
+}
+#prev,
+#next{
+    color: #29323D;
+}
+#controls {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #29323D;
+}
+#controls span {
+    cursor: pointer;
+    width: 15%;
+    text-align: center;
+}
+#One_Week {
+    display: inline-block;
+    font-size: 1.25em;
+}
+.selected-time{
+    width: 50%;
+    font-size: 1.25em;
+}
+.selected-time p{
+    margin-left: .5em;
+}
+#selectedDateTime{
+    text-align: center;
+    color: #003ffc;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+
+.calendar {
+    overflow: scroll;
+    background-color: #fff;
+}
+
+table#calendarTable {
+    border-collapse: collapse;
+    width: 130%;
+    background-color: #fff;
+}
+#calendarTable th,
+#calendarTable td {
+    border: 1px solid #ddd;
+    padding: .5em;
+    text-align: center;
+}
+#calendarTable th {
+    background-color: #29323D;
+    color: #fff;
+}
+#calendarTable th:first-of-type{
+    background-color: #fff;
+    border-left: none;
+    border-top: none;
+}
+#calendarTable td:first-child{
+    background-color: #fff;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+
+.saturday {
+    background-color: #0bb3e9 !important;
+}
+.sunday {
+    background-color: #ee6c69 !important;
+}
+
+.clickable {
+    cursor: pointer;
+    background-color: #e0f7fa;
+}
+.clickable:hover{
+    background-color: #f1f1f1;
+}
+
+.selected {
+    background-color: #ea9191 !important;
+    color: #fff;
+}
+.unavailable {
+    background-color: #d3d3d3;
+    color: #888;
+}
+
+#timeCalender_confirm{
+    display: inline-block;
+    margin: 1.5em .5em;
+}
+
+    /* ゲスト入力欄 */
+.firstUser-field{
+    margin: 1.5em auto;
+}
+.form-item .gender{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+.gender label{
+    width: 34%;
+}
+.gender input[type="radio"]{
+    width: auto;
+}
+.form-item p.small-box{
+    width: 20%;
+}
+.form-item input[name="age"]{
+    width: 15%;
+}
+
+#timeCalendar_confirm{
+    margin: 1.5em 0.5em;
+}
+
+    /* 最終入力確認画面 */
+div.confirm-window{
+    border-bottom: none;
+}
+#correct_btn{
+    font-size: 1em;
+    margin: auto .5em;
+    padding: 0.5em;
+}
+
+
+
+/* フッター */
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.copyright{
+    font-size: .75rem;
+}
+
+/* デスクトップ版 */
+@media (min-width: 700px) {
+
+    /* ログインページ */
+    div.member-login{
+        width: 42em;
+    }
+
+    /* プログラム選択 */
+    .select-item,
+    .select-item-guidance{
+        width: 30em;
+        margin-left: 0;
+    }
+    #personal,
+    #onlinePersonal{
+        width: 4.5em;
+        height: 4.5em;
+    }
+
+    /* 健康習慣相談フォーム & ゲストの情報入力フォーム */
+    form#guidance_form,
+    .firstUser-field{
+        width: 30em;
+        margin-left: .5em;
+    }
+    .form-item p{
+        width: 30%;
+    }
+    .form-item input,
+    .form-item select{
+        width: 65%;
+        margin: auto;
+    }
+    .confirm-content{
+        width: 30em;
+    }
+    .form-item .gender{
+        width: 60%;
+    }
+    .form-item input[name="age"]{
+        margin: 0.5em 0.15em;
+    }
+    .form-item p.small-box{
+        width: 30%;
+    }
+
+    /* カレンダー */
+    div.time-table{
+        width: 45em;
+    }
+    table#calendarTable{
+        width: 100%;
+    }
+}

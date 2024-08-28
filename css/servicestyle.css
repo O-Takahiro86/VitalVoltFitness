@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+/* メイン */
+div.l-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+section#personal,
+#onlinepersonal,
+#guidance{
+    width: 45%;
+    margin: auto 1em;
+    transition: all .5s ease;
+}
+#personal article,
+#onlinepersonal article,
+#guidance article{
+    border-width: 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+div.s-container{
+    position: relative;
+}
+    /* 健康習慣プログラム */
+section#guidance{
+    margin: auto;
+}
+
+/* 開閉ボタン */
+/* アコーディオンパネル */
+div.stick{
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    background-color: rgb(3, 117, 159);
+    transition: all .5s ease;
+}
+.stick.open{
+    transform: rotate(135deg);
+}
+.stick span,
+.stick span::before{
+    display: block;
+    content: "";
+    width: 1.75em;
+    height: .3em;
+    background-color: #FFF;
+    border-radius: 5px;
+    transform: translate(5px,17px);
+}
+.stick span::before{
+    transform: rotate(90deg);
+}
+section#personal.open,
+#onlinepersonal.open,
+#guidance.open{
+    width: 90%;
+}
+div.xs-container{
+    display: none;
+}
+
+
+h4{
+    padding: 1em 0;
+}
+
+/* 料金表 */
+table.price-list{
+    border-collapse: collapse;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    text-align: center;
+    border: 1px solid;
+    margin: 1.5em auto;
+}
+.price-list th,
+.price-list td{
+    padding: .25em;
+}
+.price-list th{
+    font-size: 1em;
+    border-bottom: .75px dashed;
+}
+.price-list th:nth-of-type(2){
+    background-color: #29323D;
+    color: #FFF;
+}
+.price-list th:last-of-type{
+    background-color: #AB9346;
+    color: aliceblue;
+}
+.price-list tr:nth-last-of-type(2) td{
+    border-bottom: .75px dotted gray;
+}
+
+
+/* タブレット版 */
+@media (max-width: 670px){
+
+    section#personal,
+    #onlinepersonal,
+    #guidance{
+        width: 90%;
+    }
+
+}

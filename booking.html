@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow" />
+    <title>ViTAL VOLT FITNESS - Booking_Form</title>
+    <meta name="description" content="「いつまでも動ける身体に！」。一人一人に最適なトレーニングを提供するフィットネスジムの専用オンラインショップ">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="images/gym_logo.png">
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <!-- オリジナルCSS -->
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/bookingstyle.css">
+
+    <!-- Google Font ~Hind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0056114bbb.js" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- 上部にジムロゴ -->
+    <header>
+        <img src="images/gym_logo.png" alt="gym-logo.jpg" id="gym_logo">
+        <img src="images/gym_name.png" alt="gym-name.jpg" id="gym_name">
+        <h2>予約フォーム</h2>
+    </header>
+
+    <!-- ログインページ -->
+    <div class="overlay" id="overlay"></div>
+    <div class="member-login section" id="login">
+        <p>会員IDとパスワードを入力してください<br>(デモページのため適当に入れてみてください)</p>
+        <table class="login-list">
+            <tr>
+                <th>お名前</th>
+                <td><input type="text" name="member-ID" class="login-item"></td>
+            </tr>
+            <tr>
+                <th>パスワード<br><small>(英数字のみ)</small></th>
+                <td><input type="password" name="password" class="login-item"></td>
+            </tr>
+        </table>
+        <div class="btns">
+            <button class="open-btn" id="loginButton">ログイン</button>
+            <button class="close-btn" id="closeButton1">閉じる</button>
+        </div>
+    </div>
+
+    <main class="fontcolor-darknavy">
+        <p id="attention"><small>※健康習慣プログラムのご相談は「初回利用(体験)」の方を選択してください</small></p>
+        <!-- フォーム入力者の属性ボタン -->
+        <div class="memberAttr section">
+            <button id="member">会員様予約</button>
+            <button id="firstUser">初回利用(体験)</button>
+        </div>
+        <div id="main_container">
+            <!-- プログラム選択 -->
+            <div class="member-form section" id="program">
+                <p>プログラムを選択してください</p>
+                <div class="font-hind select-item training" id="Personal">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm hidden"></i>
+                        <img src="images/trainnig1.jpg" alt="personal.jpg" id="personal">
+                    </div>
+                    <p class="times"><i class="fa-regular fa-clock fa-sm"></i>60分</p>
+                    <p><span class="program-name">パーソナルトレーニング</span></p>
+                </div>
+                <div class="font-hind select-item training" id="OnlinePersonal">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm hidden"></i>
+                        <img src="images/onlinepersonal.jpg" alt="personal.jpg" id="onlinePersonal">
+                    </div>
+                    <p class="times"><i class="fa-regular fa-clock fa-sm"></i>60分</p>
+                    <p><span class="program-name">オンラインパーソナル</span><br><small>(トレーニング環境をご用意できる方のみ)</small></p>
+                </div>
+                <!-- 初回利用なら表示させる -->
+                <div class="font-hind select-item hidden" id="Guidance">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm hidden"></i>
+                        <img src="images/guidance.jpg" alt="guidance.jpg" id="guidance">
+                    </div>
+                    <p class="times"><i class="fa-regular fa-clock fa-sm"></i>30分程度<br>(目安)</p>
+                    <p>健康習慣プログラムのご相談</p>
+                </div>
+            </div>
+            <!-- パーソナル・オンラインパーソナル→担当者選択 -->
+            <div class="trainer-select section" id="trainer">
+                <p>スタッフを選択してください</p>
+                <div class="font-hind select-item gym-staff" id="TheMaccho">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm hidden"></i>
+                        <img src="images/icooon-mono/the-maccho.png" alt="the-maccho.png" id="themaccho">
+                    </div>
+                    <p><span class="trainer-name">ザマッチョ</span></p>
+                </div>
+                <div class="font-hind select-item gym-staff" id="TheExercise">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm hidden"></i>
+                        <img src="images/icooon-mono/the-exercise.png" alt="the-exercise.png" id="theexercise">
+                    </div>
+                    <p><span class="trainer-name">ザエクササイズ</span></p>
+                </div>
+            </div>
+            <!-- 健康習慣なら相談窓口フォーム -->
+            <div class="guidance-form section" id="guidanceForm">
+                <p>担当者：ザヘルスケア</p>
+                <div class="font-hind select-item-guidance gym-staff" id="TheGuidance">
+                    <div class="program-img">
+                        <i class="fa-solid fa-check fa-sm"></i>
+                        <img src="images/icooon-mono/planning.png" alt="planning.png" id="theguidance">
+                    </div>
+                    <p>ザヘルスケア</p>
+                </div>
+                <div class="text-form">
+                    <p><small>下記項目に内容をご入力のうえ、確認ボタンを押してください。<br>ご登録のメールアドレス宛に専用フォームのURLをお送りいたします。</small></p>
+                    <form action="" method="post" name="guidance-box" id="guidance_form">
+                        <div class="form-item">
+                            <p>お名前</p>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="form-item">
+                            <p>メールアドレス</p>
+                            <input type="email" name="e-mail">
+                        </div>
+                        <div class="form-item">
+                            <p>ご検討中のプログラム<br><span id="required_msg"></span></p>
+                            <select name="guidance_program" required>
+                                <option disabled selected value="">▼選択してください</option>
+                                <option value="生活習慣の改善・指導">生活習慣の改善・指導</option>
+                                <option value="食事の指導・改善">食事の指導・改善</option>
+                                <option value="生活習慣と食事の両方の指導・改善">生活習慣と食事の両方の指導・改善</option>
+                            </select>
+                        </div>
+                        <div class="open-btn" id="confirm_btn">確認</div>
+                        <!-- 内容確認画面 -->
+                        <div class="confirm-content" id="guidance_confirm">
+                            <p><small>以下の内容で送信します。よろしければ送信ボタンを押してください。</small></p>
+                            <p>お名前:<br><span id="name_confirm"></span></p>
+                            <p>メールアドレス:<br><span id="email_confirm"></span></p>
+                            <p>ご検討中のプログラム:<br><span id="program_confirm"></span></p>
+                            <div class="btns">
+                                <div class="open-btn" id="submit">送信</div>
+                                <div class="close-btn" id="fix_btn">修正</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- パーソナル・オンラインパーソナル 空き時間枠テーブル -->
+            <div class="time-table section">
+                <p>日時をお選びください</p>
+                <div class="time-head">
+                    <div id="controls">
+                        <span id="prev"><i class="fa-solid fa-chevron-up fa-rotate-270"></i></span>
+                        <p id="One_Week"></p>
+                        <span id="next"><i class="fa-solid fa-chevron-up fa-rotate-90"></i></span>
+                    </div>
+                    <div class="selected-time">
+                        <!-- 選択した日時をここに表示 -->
+                        <p>選択した日時：</p>
+                        <p id="selectedDateTime"></p>
+                    </div>
+                </div>
+                <div class="calendar">
+                    <table id="calendarTable">
+                        <!-- カレンダーはjQueryで生成 -->
+                    </table>
+                </div>
+                <div class="firstUser-field" id="firstUserField">
+                    <p>ご入力をお願いします。</p>
+                    <div class="form-item">
+                        <p>お名前</p>
+                        <input type="text" name="firstUser_name">
+                    </div>
+                    <div class="form-item">
+                        <p>性別</p>
+                        <div class="gender">
+                            <label><input type="radio" name="gender" value="man">男性</label>
+                            <label><input type="radio" name="gender" value="female">女性</label>
+                            <label><input type="radio" name="gender" value="Unknown" checked>無回答</label>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <p class="small-box">ご年齢</p>
+                        <input type="number" name="age">
+                    </div>
+                    <div class="form-item">
+                        <p>電話番号</p>
+                        <input type="tel" name="tel">
+                    </div>
+                    <div class="form-item">
+                        <p>メールアドレス</p>
+                        <input type="email" name="firstUser_email">
+                    </div>
+                </div>
+                <p id="required_msg2"></p>
+                <button class="open-btn" id="timeCalendar_confirm">内容を確認する</button>
+            </div>
+            <!-- 確認画面 -->
+            <div class="section confirm-window">
+                <div class="confirm-content" id="final_confirm">
+                    <p id="finalConfirm_text"><small>以下の内容で予約します。よろしければ確定ボタンを押してください。</small></p>
+                    <div id="selected_program">
+                        <p>プログラム:<br><span id="program_name"></span></p>
+                        <p>担当スタッフ:<br><span id="trainer_name"></span></p>
+                        <p>日時:<br><span id="schedule"></span></p>
+                    </div>
+                    <!-- 必要に応じて消す↓ -->
+                    <div id="firstUser_info">
+                        <p>お名前:<br><span id="experiencer"></span></p>
+                        <p>性別:<br><span id="experiencer_gender"></span></p>
+                        <p>ご年齢:<br><span id="experiencer_age"></span></p>
+                        <p>電話番号<br><span id="experiencer_tel"></span></p>
+                        <p>メールアドレス:<br><span id="experiencer_email"></span></p>
+                    </div>
+                    <div class="btns">
+                        <div class="open-btn" id="decided_btn">確定</div>
+                        <div class="close-btn" id="correct_btn">訂正</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <small>&copy;2024 ViTAL VOLT FITNESS</small>
+        </div>
+    </footer>
+
+    <script src="js/bookingscript.js"></script>
+
+</body>
+
+</html>

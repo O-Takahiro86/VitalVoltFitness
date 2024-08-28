@@ -1,0 +1,584 @@
+@charset "UTF-8";
+
+/* 共通部分 */
+html {
+    font-size: 100%;
+}
+body {
+    font-family: "游ゴシック体", YuGothic, "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", sans-serif;
+    line-height: 1.5;
+    color: #e6e6e6;
+    background-color: #29323D;
+}
+body>*:not(header,nav){
+    opacity: 0;
+}
+a {
+    text-decoration: none;
+}
+a:any-link {
+    cursor: pointer;
+}
+img {
+    max-width: 100%;
+}
+
+/* レイアウト */
+.wrapper {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.25rem;
+}
+.cover-wrapper {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0;
+}
+.align-center {
+    text-align: center;
+}
+.align-right {
+    text-align: right;
+}
+.align-left {
+    text-align: left;
+}
+
+/* タイトル 見出し 小見出し */
+.font-hind {
+    font-family: "Hind", "游ゴシック体", YuGothic, "Yu Gothic";
+}
+
+/* フォント */
+.large-font {
+    font-size: 1.75rem;
+    font-weight: bolder;
+}
+.medium-font {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.small-font {
+    font-size: .75rem;
+}
+.font-bold{
+    font-weight: bold;
+}
+/* Font Awesome */
+i{
+    margin: 0 0.25rem;
+}
+/* color */
+.fontcolor-darknavy {
+    color: #29323D;
+}
+
+
+/* ヘッダー */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+    transition: top .3s;
+}
+/* 見出し */
+div.top {
+    width: 100%;
+    background-color: #29323D;
+}
+.top a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+img#gym_logo {
+    width: 10%;
+    height: auto;
+}
+img#gym_name {
+    width: 26%;
+    height: auto;
+}
+
+    /* ハンバーガーメニュー */
+/* アイコン */
+div.main-nav{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 97;
+}
+/*ボタン外側*/
+.openbtn4 {
+    position: relative;
+    background: #29323D;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    z-index: 99;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    transition: color .3s ;
+}
+.openbtn4.active{
+    background-color: rgb(41, 50, 61,0);
+}
+/*ボタン内側*/
+.openbtn4 span {
+    display: inline-block;
+    transition: all .4s;
+    /*アニメーションの設定*/
+    position: absolute;
+    left: 12px;
+    height: 2px;
+    border-radius: 5px;
+    background: #fff;
+    width: 55%;
+}
+.openbtn4 span:nth-of-type(1) {
+    top: 14px;
+}
+.openbtn4 span:nth-of-type(2) {
+    top: 20px;
+}
+.openbtn4 span:nth-of-type(3) {
+    top: 26px;
+}
+.openbtn4 span:nth-of-type(3)::after {
+    content: "Menu";
+    /*3つ目の要素のafterにMenu表示を指定*/
+    position: absolute;
+    top: 5px;
+    left: -7px;
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+/*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+.openbtn4.active span:nth-of-type(1) {
+    top: 14px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 35%;
+}
+.openbtn4.active span:nth-of-type(2) {
+    opacity: 0;
+    transition: 0s;
+}
+.openbtn4.active span:nth-of-type(3) {
+    top: 26px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 35%;
+}
+.openbtn4.active span:nth-of-type(3)::after {
+    content: "Close";
+    /*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+    top: 6px;
+    left: 4px;
+}
+
+/* メニューのデザイン */
+.main_nav-content {
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 100%;
+    z-index: 98;
+    background: rgb(41, 50, 61,0.9);
+    transition: all .5s;
+    padding-top: 3rem;
+}
+.main_nav-content.active{
+    left: 30%;
+}
+
+/* メニューの黒ポチを消す */
+.main_nav-list {
+    list-style: none;
+    height: 100%;
+}
+.main_nav-item {
+    height: 15%;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #E6E6E6;
+    padding: .5rem 0;
+    margin: 1rem .5rem;
+}
+.main_nav-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #E6E6E6;
+    align-content: center;
+}
+.main_nav-item a:hover {
+    color: #EFAB5C;
+}
+/* 入会・体験申し込みボタン */
+.signup-jump {
+    width: 100%;
+}
+.signup-btn {
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bolder;
+    background-color: #AB9346;
+    color: #e6e6e6;
+    border-radius: 6px;
+    margin: 1rem;
+    padding: 0.5rem .25rem;
+    transition: color .5s;
+}
+.signup-btn:hover {
+    background-color: #fff;
+    color: #29323D;
+}
+
+    /* メイン画像 */
+div.main-cover{
+    position: relative;
+}
+    /* (index以外) */
+.main-cover img.other-main-image{
+    width: 100%;
+    height: 60vw;
+    object-fit: cover;
+}
+div.main-cover h2.title{
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    transform: translateY(50%);
+    font-size: 16vw;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: #e4820b 1px 0 10px;
+    opacity: .7;
+}
+
+    /* メイン画像上のボタン */
+.main-cover>a{
+    position: absolute;
+    right: 1%;
+    bottom: 2%;
+    width: 30vw;
+    text-align: center;
+    font-size: .75rem;
+    font-weight: bold;
+    margin: 0;
+    border: .5px groove #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+}
+    /* (index以外) */
+a.other-main-btn{
+    bottom: 5%;
+}
+
+    /* ページ内リンク */
+nav.sub-nav ul,
+nav.contact-subnav ul {
+    display: flex;
+    justify-content: space-around;
+}
+.sub-nav ul li {
+    list-style: none;
+    width: 37.5%;
+    height: auto;
+    background-color: #29323D;
+    font-size: .75rem;
+    font-weight: bold;
+    color: #E6E6E6;
+    border: 2px outset #29323D;
+    border-top: none;
+    border-bottom: none;
+}
+.sub-nav li {
+    height: 1.2rem;
+}
+.sub-nav li:first-of-type{
+    width: 25%;
+    border-left: none;
+    font-size: 1rem;
+}
+.sub-nav li:last-of-type{
+    border-right: none;
+}
+.sub-nav li a {
+    display: block;
+    color: #E6E6E6;
+}
+.sub-nav li a:hover {
+    color: #EFAB5C;
+}
+
+/* メイン */
+main {
+    background-color: #E6E6E6;
+}
+main section {
+    border-radius: 8px;
+    padding: 2rem 0 2rem 0;
+}
+main section article {
+    background-color: #fff;
+    border: 2px solid #29323D;
+    border-radius: 10px;
+    margin: .25rem .25rem 1rem;
+    padding: 1rem;
+}
+
+/* フッター */
+section.info-footer,
+section.sitemap {
+    margin: .5rem 0;
+    padding: .5rem 0;
+}
+.sitemap {
+    border-top: 1px dashed #E6E6E6;
+}
+footer li {
+    list-style: none;
+    list-style-position: inside;
+}
+/* ジムINFO */
+section.info-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+}
+div.gym-info a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+img#footer_logo {
+    width: auto;
+    height: 3.5rem;
+}
+img#footer_gym_name {
+    width: auto;
+    height: 3rem;
+}
+.gym-info ul {
+    font-size: .9rem;
+    margin-top: 0.5rem;
+}
+.gym-info li::before {
+    content: "- ";
+}
+/* SNS link */
+div.sns-link {
+    width: 45%;
+}
+.sns-link>ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+.sns-link li {
+    width: 2rem;
+}
+
+/* サイト内リンク */
+.sitemap>ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.sitemap p {
+    font-size: 1rem;
+    margin: 0.5rem auto;
+}
+.sitemap ul {
+    font-size: .9rem;
+}
+.sitemap li a {
+    color: #E6E6E6;
+    border-bottom: 1px dotted #E6E6E6;
+}
+.sitemap a:hover {
+    color: #e19d49;
+}
+.sitemap-list li::before {
+    content: "- ";
+}
+.sitemap-list>li a{
+    border-bottom: none;
+}
+
+.copyright {
+    background-color: #E6E6E6;
+    text-align: center;
+    padding: .5rem 0;
+    margin-top: 2rem;
+    color: #29323D;
+}
+
+/* その他 */
+    /* 最上部に戻るボタン */
+#pageTop{
+    display: none;
+    position: fixed;
+    right: 2%;
+    bottom: 10%;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+#pageTop a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: .5px solid #29323D;
+	border-radius: 50%;
+	background-color: #E6E6E6;
+	text-decoration: none;
+	color: #29323D;
+	text-shadow: 2px 2px 3px #333;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+	text-align: center;
+    align-content: center;
+	opacity: .9;
+}
+
+
+/* デスクトップ版 */
+@media (min-width: 800px) {
+
+    /* ヘッダー */
+    /* 見出し */
+    img#gym_logo {
+        width: auto;
+        height: 5rem;
+    }
+    img#gym_name {
+        width: auto;
+        height: 4rem;
+    }
+
+    /* デスクトップ版ナビ */
+    .pc-nav {
+        background-color: #29323D;
+        width: 100%;
+        height: 2.5rem;
+        z-index: 98;
+        transition: top .3s;
+    }
+    .pc-nav.box_Shadow{
+        box-shadow: 0px 13px 10px -6px rgba(168, 166, 166, 0.6);
+    }
+    .pc-nav ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+        height: 100%;
+    }
+    .pc-nav li {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: .3s;
+    }
+    .pc-nav li:hover {
+        transform: translateY(5px);
+    }
+    .pc-nav li a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: 1.25rem;
+        color: #fff;
+    }
+    .pc-nav li a:hover {
+        color: #e4820b;
+    }
+    /* ハンバーガーメニューを消す */
+    .main-nav {
+        display: none;
+    }
+    /* メイン画像 */
+    .main-cover img.other-main-image{
+        height: 50vh;
+    }
+    .main-cover>a{
+        font-size: 1rem;
+    }
+    /* ページ内リンク */
+    .sub-nav ul li {
+        font-size: 1rem;
+        height: 1.5rem;
+    }
+
+    /* フッター */
+    footer section.info-footer,
+    section.sitemap {
+        margin: 1rem auto;
+    }
+    section.info-footer {
+        justify-content: space-around;
+        gap: 0;
+    }
+    .gym-info,
+    .sns-link {
+        width: 50%;
+    }
+    section.info-footer p.medium-font {
+        font-size: 1.75rem;
+    }
+    div.gym-info img {
+        width: 15%;
+        height: auto;
+    }
+    div.gym-info ul {
+        font-size: 1rem;
+    }
+    ul.sns-signup-btn {
+        justify-content: center;
+    }
+    section.sitemap {
+        padding-top: 1rem;
+    }
+    .sitemap p {
+        font-size: 1rem;
+    }
+    .sitemap>ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .sitemap ul {
+        font-size: 1rem;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    /* デスクトップ版ナビを消す */
+    .pc-nav {
+        display: none;
+    }
+}
+
+/* フッターのサイトマップを縦並べにする */
+@media (max-width: 453px) {
+
+    .sitemap>ul {
+        flex-flow: column;
+        gap: 1.5rem;
+        margin: 1rem 0;
+    }
+    .sitemap ul {
+        font-size: 1rem;
+    }
+}

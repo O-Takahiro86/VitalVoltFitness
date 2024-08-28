@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+/* Home（slick設定） */
+    /* 背景画像設定 */
+div.slider .slider-item{
+    position: relative;
+}
+.slider-item img{
+    object-fit: cover;
+    width: 100%;
+    height: 60vw;
+    cursor: pointer;
+}
+.slider-item .slider-titlebox{
+    position: absolute;
+    left: 0%;
+    bottom: 2%;
+    z-index: 1;
+    background-color: rgb(41, 50, 61,0.9);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    max-width: 65vw;
+    padding: .5rem;
+}
+.slider-titlebox p{
+    font-size: 1rem;
+    color: #fff;
+    padding: 0.1rem;
+}
+.slider-titlebox p.slider-title{
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: bolder;
+    color: #FFF;
+    text-shadow: #fc0 1px 0 10px;
+    padding-left: 0.5rem;
+}
+    /* slick setting */
+    /* arrow矢印を画像と重ねる */
+.slick-prev,
+.slick-next{
+    position: absolute;
+    z-index: 3;
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #ccc;/*矢印の色*/
+    border-right: 2px solid #ccc;/*矢印の色*/
+}
+.slick-prev::before,
+.slick-next::before{
+    content: "";
+    color: #fff;
+}
+.slick-prev{
+    left: 2%;
+    transform: rotate(-135deg);
+}
+.slick-next{
+    right: 2%;
+    transform: rotate(45deg);
+}
+    /* dots */
+.slick-dots li button::before,
+.slick-dots li button::after{
+    color: #E6E6E6;
+}
+
+
+/* メイン */
+section p{
+    line-height: 1.5;
+}
+    /* beginning */
+article.beginning p{
+    padding: 0.5rem 0;
+}
+.beginning p i{
+    padding: 0 .5rem;
+}
+.beginning p span{
+    text-decoration: 1px dashed underline;
+}
+
+    /* news */
+div.news-list{
+    margin: .5rem 0;
+    padding: .5rem 0;
+}
+.news-list:not(:last-child){
+    border-bottom: 1px dashed;
+}
+.news-list p{
+    padding: .5rem 0;
+}
+.news-list>p{
+    cursor: pointer;
+}
+.news-list>p i{
+    padding-right: .5rem;
+}
+.news-container p{
+    padding-top: 0;
+}
+.news-container p a{
+    text-decoration: underline dotted;
+    color: rgb(0, 195, 255);
+}
+.news-container a:hover{
+    color: #e4820b;
+}
+
+    /* アコーディオンパネルsetting */
+i.rotate-icon{
+    transform: rotate(0deg) translateX(0px);
+    transition: transform .5s ease;
+}
+i.rotate-icon.rotate{
+    transform: rotate(90deg) translateX(5px);
+}
+article.beginning{
+    position: relative;
+    max-width: 100%;
+    height: 8rem;
+    overflow: hidden;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+div.news-container{
+    position: relative;
+    max-width: 100%;
+    height: 2.5rem;
+    padding: 0 0 0 1rem ;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all .5s ease;
+}
+/* コンテナをグラデーションで隠す */
+.beginning::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    background-color: #000;
+    background: linear-gradient(0deg,rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%);
+    transition: .5s;
+}
+.news-container::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .75rem;
+    background-color: #000;
+    background: linear-gradient(0deg,rgba(255,255,255,1) 40%,rgba(255,255,255,0) 100%);
+    transition: .5s;
+}
+/* クラス付与時のスタイル */
+.beginning.open::before,
+.news-container.open::before{
+    opacity: 0;
+    visibility: hidden;
+}
+
+    /* introduction */
+section#introduction article{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.strong-point{
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    border-radius: 8px;
+    width: 100%;
+    margin: 1em;
+    padding: 1em;
+}
+div.point-image{
+    width: 6em;
+    height: 6em;
+    margin: auto;
+    padding: 1em;
+}
+.point-image img{
+    width: 4em;
+}
+#bg_red{
+    background-color: rgb(246, 53, 53);
+}
+#bg_blue{
+    background-color: rgb(3, 117, 159);
+}
+#bg_green{
+    background-color: rgb(5, 166, 5);
+}
+#bg_purple{
+    background-color: purple;
+}
+div.point-text{
+    margin: 1em 0;
+}
+.point-text h6,
+.point-text p{
+    margin: .75em 0;
+}
+.point-text p{
+    text-align: left;
+}
+.point-text a:hover{
+    color: #e4820b;
+}
+
+/* パッド版 */
+@media (min-width: 670px) {
+
+    /* メイン */
+    /* introduction */
+    div.strong-point{
+        width: 40%;
+    }
+}
+
+/* デスクトップ版 */
+@media (min-width: 800px) {
+
+    /* slick setting */
+    .slider .slider-item img{
+        height: 50vh;
+    }
+    .slider-titlebox p{
+        font-size: 1rem;
+    }
+    .slider-titlebox p.slider-title{
+        font-size: 1.2rem;
+    }
+
+    /* メイン */
+    /* introduction */
+    div.strong-point{
+        margin: 2em;
+    }
+
+}
